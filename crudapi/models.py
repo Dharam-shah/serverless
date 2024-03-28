@@ -1,7 +1,10 @@
 from django.db import models
+from datetime import datetime 
 
 # Create your models here.
-class Student(models.Model):
-    name = models.CharField(max_length=100)
-    age = models.IntegerField()
-    address = models.CharField(max_length=100)
+class Task(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(max_length=500)
+    created_at = models.DateTimeField(default=datetime.now, blank=True)
+    deadline = models.DateTimeField(blank=True)
+
